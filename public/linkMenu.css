@@ -1,0 +1,72 @@
+.menu {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: table;
+  margin: 0 auto;
+}
+
+.list {
+  float: left;
+}
+
+.list a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.list a:hover {
+  background-color: #111;
+}
+.list {
+  border-right: 1px solid #bbb;
+}
+
+.list:last-child {
+  border-right: none;
+}
+table, th, td {
+  border: 1px solid black;
+
+}
+th, td {
+  width: 100px;
+}
+table {
+  width: 100%;
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  background-color: gray;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+.top {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.top2 {
+  position: absolute;
+  top: 25%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

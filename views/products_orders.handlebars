@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="linkMenu.css" />
+      <style>
+        .top5{
+          position: absolute;
+          top: 40%;
+          left: 15%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+      </style>
+    </head>
+    <div>
+      <ul style="font-family:verdana" class = 'menu'>
+        <nav role ="navigation">
+          <li class = 'list'>
+            <a href="/">Main Menu</a>
+          </li>
+          <li class = 'list'>
+            <a href="/customers">Customers</a>
+          </li>
+          <li class = 'list'>
+            <a href="/greekhouses">Greek Houses</a>
+          </li>
+          <li class = 'list'>
+            <a href="/orders">Orders</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products_greekhouses">Products and Greek Houses</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products_orders">Products and Orders</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products">Products</a>
+          </li>
+        </nav>
+      </ul>
+    </div>
+    <div class = "top5">
+    <body>
+      <h1>Products and Orders</h1>
+        <form>
+            <p>orderID</p>
+            <input type="text">
+            <p>productID</p>
+            <input type="text">
+            <p>productQty</p>
+            <input type="text">
+            <p>ADD TO TABLE</p>
+            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+        </form>
+
+    </body>
+  </div>
+
+    <div class = "top2">
+      <body>
+        <h1>Table</h1>
+        <table>
+          <tr>
+            <th>Product ID</th>
+            <th>Order ID</th>
+            <th>Product Quantity</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+        </table>
+      </body>
+      <br>
+      <button>Update</button>
+    </div>
+</html>

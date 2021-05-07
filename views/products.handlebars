@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <style>
+        .top6{
+          position: absolute;
+          top: 50%;
+          left: 10%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+      </style>
+      <link rel="stylesheet" type="text/css" href="linkMenu.css"/>
+    </head>
+    <div>
+      <ul style="font-family:verdana" class = 'menu'>
+        <nav role ="navigation">
+          <li class = 'list'>
+            <a href="/">Main Menu</a>
+          </li>
+          <li class = 'list'>
+            <a href="/customers">Customers</a>
+          </li>
+          <li class = 'list'>
+            <a href="/greekhouses">Greek Houses</a>
+          </li>
+          <li class = 'list'>
+            <a href="/orders">Orders</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products_greekhouses">Products and Greek Houses</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products_orders">Products and Orders</a>
+          </li>
+          <li class = 'list'>
+            <a href="/products">Products</a>
+          </li>
+        </nav>
+      </ul>
+    </div>
+    <div class = "top6">
+
+    <body>
+      <h1>Products</h1>
+        <form>
+
+            <p>Order ID</p>
+            <input type="text">
+            <p>House ID</p>
+            <input type="text">
+            <p>category</p>
+            <input type="text">
+            <p>price</p>
+            <input type="text">
+            <p>name</p>
+            <input type="text">
+            <p>ADD TO TABLE</p>
+            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+        </form>
+
+    </body>
+  </div>
+
+    <div class = "top2">
+      <body>
+        <h1>Table</h1>
+        <table>
+          <tr>
+            <th>Product ID</th>
+            <th>Order ID</th>
+            <th>House ID</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Name</th>
+          </tr>
+          <tr>
+            <td>1</td>h
+            <td>NULL</td>
+            <td>1</td>
+            <td>Hoodies</td>
+            <td>49.99</td>
+            <td>Gray Lettes Hoodie</td>
+          </tr>
+        </table>
+      </body>
+      <br>
+      <label for = del>Delete:</label>
+      <input type = "text" id = "del">
+      <button>Delete</button>
+      <br>
+      <br>
+      <label for = search>Search:</label>
+      <input type = "text" id = "search">
+      <button>Search</button>
+      <br>
+      <br>
+      <button>Update</button>
+
+    </div>
+</html>
