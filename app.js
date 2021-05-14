@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var db = require('./database/db-connector')
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 var bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.set('view engine', 'handlebars');
-app.set('port', 8991);
+app.set('port', 8992);
 
 app.get('/', function(req,res){
   res.render('home');
