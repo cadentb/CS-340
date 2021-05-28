@@ -71,6 +71,12 @@
       <br>
       <button>Update</button>
       <br><br>
-      <p style="background-color:powderblue">{{results}}</p>
+      {{#each data}}
+        <tr>
+          <td>{{this.customerID}}</td>
+          <td>{{this.firstName}}</td>
+          <td>{{this.lastName}}</td>
+          <td>{{this.email}}</td>
+        </tr>
     </div>
 </html>

@@ -18,15 +18,16 @@ app.get('/', function(req,res){
 });
 
 app.get('/customers', function(req,res,next){
-  var package = {};
-  db.pool.query('SELECT * FROM customers', function(err, rows, fields){
+  //var package = {};
+  db.pool.query('SELECT * FROM customers', function(err, fields){
     if(err){
       throw(err);
-    }
-    package.results = JSON.stringify(rows);
-    res.render('customers', package);
+    }else{
+    //package.results = JSON.stringify(rows);
+    console.log(fields);
+    res.render('customers', {data: fields});
+  }
   });
-
 });
 
 app.get('/greekhouses', function(req,res){
@@ -36,7 +37,7 @@ app.get('/greekhouses', function(req,res){
       throw(err);
     }
     package.results = JSON.stringify(rows);
-    res.render('greekhouses', package);
+    res.render('greekhouses', {data: fields});
   });
 });
 
