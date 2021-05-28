@@ -20,9 +20,11 @@
 }
 
 /* Change the link color to #111 (black) on hover */
+
 .list a:hover {
   background-color: #111;
 }
+
 .list {
   border-right: 1px solid #bbb;
 }
@@ -30,16 +32,19 @@
 .list:last-child {
   border-right: none;
 }
+
 table, th, td {
   border: 1px solid black;
-
 }
+
 th, td {
   width: 100px;
 }
+
 table {
   width: 100%;
 }
+
 .split {
   height: 100%;
   width: 50%;
@@ -50,12 +55,15 @@ table {
   padding-top: 20px;
   background-color: gray;
 }
+
 .left {
   left: 0;
 }
+
 .right {
   right: 0;
 }
+
 .top {
   position: absolute;
   top: 40%;
@@ -63,6 +71,7 @@ table {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .top2 {
   position: absolute;
   top: 25%;

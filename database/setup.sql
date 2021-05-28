@@ -47,11 +47,12 @@ CREATE TABLE `greekHouses`(
 )ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 
-INSERT INTO customers(firstName, lastName, email) VALUES ('Matthew','Brayton','mb@mail.mail')
-INSERT INTO customers(firstName, lastName, email) VALUES ('Caden','Burke','cb@mail.mail')
+INSERT INTO customers(firstName, lastName, email) VALUES ('Matthew','Brayton','mb@mail.mail');
+INSERT INTO customers(firstName, lastName, email) VALUES ('Caden','Burke','cb@mail.mail');
 
-INSERT INTO orders(shipStreet, shipCity, shipState, shipZip) VALUES ('thisStreet','thatCity','theState','99999')
+INSERT INTO orders(shipStreet, shipCity, shipState, shipZip) VALUES ('thisStreet','thatCity','theState','99999');
 
-INSERT INTO products(category, price, name, quantityInStock) VALUES ('Hoodie', '39.99', 'THE BEST HOODIE EVER', '99')
+INSERT INTO products(category, price, name, quantityInStock) VALUES ('Hoodie', '39.99', 'THE BEST HOODIE EVER', '99');
 
-INSERT INTO greekHouses(letters, nickname) VALUES ('Alpha Tau Omega', 'ATO')
+INSERT INTO greekHouses(letters, nickname) VALUES ('Alpha Tau Omega', 'ATO');
+INSERT INTO greekHouses(letters, nickname) VALUES ('Alpha Chi Omega', 'AXO');
