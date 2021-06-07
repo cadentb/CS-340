@@ -1,5 +1,7 @@
 var express = require('express');
 var db = require('./database/db-connector')
+var mysql = require('./database/db-connector.js');
+var bodyParser = require('body-parser');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
