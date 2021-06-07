@@ -27,7 +27,7 @@ WHERE productID = :selectedProductID
 
 SELECT houseID, letters, nickname
 FROM greekhouses
-WHERE houseID = :selectedHouseID
+WHERE houseID = :selectedHouseID 
 
 
 -- Delete Queries --

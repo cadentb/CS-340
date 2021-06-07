@@ -72,6 +72,7 @@
             <th>Shipping City</th>
             <th>Shipping State</th>
             <th>Shipping Zip Code</th>
+            <th>Delete</th>
           </tr>
           <tr>
             <td>1</td>
@@ -80,18 +81,38 @@
             <td>Corvallis</td>
             <td>Oregon</td>
             <td>97331</td>
+            <td><button type="button" id="deleteButton">Delete</button></td>
+
 
           </tr>
         </table>
       </body>
-      <br>
-      <label for = del>Delete:</label>
-      <input type = "text" id = "del">
-      <button>Delete</button>
+
       <br>
       <br>
       <button>Update</button>
       <br><br>
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Shipping Street</th>
+          <th>Shipping City</th>
+          <th>Shipping State</th>
+          <th>Shipping Zip Code</th>
+          <th>Delete</th>
+        </tr>
+
+        {{#each results}}
+        <tr>
+          <td>{{orderID}}</td>
+          <td>{{shipStreet}}</td>
+          <td>{{shipCity}}</td>
+          <td>{{shipState}}</td>
+          <td>{{shipZip}}</td>
+          <td><button type="button" id="deleteButton">Delete</button></td>
+        </tr>
+        {{/each}}
+        </table>
       <p style="background-color:powderblue">{{results}}</p>
     </div>
 </html>

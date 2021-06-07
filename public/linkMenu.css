@@ -74,7 +74,7 @@ table {
 
 .top2 {
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
   text-align: center;

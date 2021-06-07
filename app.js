@@ -11,24 +11,42 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 8992);
+app.set('port', 8988);
 
 app.get('/', function(req,res){
   res.render('home');
 });
 
 app.get('/customers', function(req,res,next){
-  //var package = {};
-  db.pool.query('SELECT * FROM customers', function(err, fields){
+  var package = {};
+  package.jsscripts = ["deleteCustomer.js"]
+  db.pool.query('SELECT * FROM customers', function(err, rows, fields){
     if(err){
       throw(err);
-    }else{
-    //package.results = JSON.stringify(rows);
-    console.log(fields);
-    res.render('customers', {data: fields});
-  }
+    }
+    package.results = rows;
+    console.log(package.results);
+    res.render('customers', package);
   });
+
 });
+
+app.delete('/:id', function(req, res){
+  console.log("in delete");
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM customers WHERE customerID = ?";
+        var inserts = [req.params.id];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+            }else{
+                res.status(202).end();
+            }
+        })
+    })
 
 app.get('/greekhouses', function(req,res){
   var package = {};
@@ -36,8 +54,8 @@ app.get('/greekhouses', function(req,res){
     if(err){
       throw(err);
     }
-    package.results = JSON.stringify(rows);
-    res.render('greekhouses', {data: fields});
+    package.results = rows;
+    res.render('greekhouses', package);
   });
 });
 
@@ -48,7 +66,7 @@ app.get('/orders', function(req,res){
       next(err);
       return;
     }
-    package.results = JSON.stringify(rows);
+    package.results = rows;
     res.render('orders', package);
   });
 });
@@ -70,7 +88,7 @@ app.get('/products', function(req,res,next){
       next(err);
       return;
     }
-    package.results = JSON.stringify(rows);
+    package.results = rows;
     res.render('products', package);
   });
 });
@@ -88,7 +106,43 @@ app.use(function(err, req, res, next){
   res.render('500');
 });
 
+app.post("/customers", (req, res) => {
+  console.log("made it");
+    let sql = "INSERT INTO Customers (firstName, lastName, email) VALUES (?, ?, ?, ?)";
+    let { firstName, lastName, email } = req.body;
+
+    let query = db.pool.query(sql, [firstName, lastName, email], (err, results) => {
+        let context = {};
+        if (err) throw err;
+
+        console.log(results);
+        context.results = true;
+        res.send(context);
+    });
+});
+
 
 app.listen(app.get('port'), function(){
   console.log('Express started on flip2.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
+
+//______________________________________
+
+
+/*{{#each data}}
+  <tr>
+    <td>{{this.customerID}}</td>
+    <td>{{this.firstName}}</td>
+    <td>{{this.lastName}}</td>
+    <td>{{this.email}}</td>
+  </tr>
+
+
+  {{#each data}}
+    <tr>
+      <td>{{customerID}}</td>
+      <td>{{firstName}}</td>
+      <td>{{lastName}}</td>
+      <td>{{email}}</td>
+    </tr>
+  </table>*/

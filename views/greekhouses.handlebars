@@ -55,28 +55,36 @@
             <th>Product ID</th>
             <th>Letters</th>
             <th>Nickname</th>
+            <th>Delete</th>
           </tr>
           <tr>
             <td>44</td>
             <td>Alpha Tau Omega</td>
             <td>ATO</td>
+            <td><button type="button" id="deleteButton">Delete</button></td>
           </tr>
         </table>
       </body>
       <br>
-      <label for = del>Delete:</label>
-      <input type = "text" id = "del">
-      <button>Delete</button>
-      <br>
-      <br>
       <button>Update</button>
       <br><br>
-      {{#each data}}
+      <table>
         <tr>
-          <td>{{this.customerID}}</td>
-          <td>{{this.firstName}}</td>
-          <td>{{this.lastName}}</td>
-          <td>{{this.email}}</td>
+          <th>House ID</th>
+          <th>Letters</th>
+          <th>Nickname</th>
+          <th>Delete</th>
         </tr>
+
+        {{#each results}}
+        <tr>
+          <td>{{houseID}}</td>
+          <td>{{letters}}</td>
+          <td>{{nickname}}</td>
+          <td><button type="button" id="deleteButton">Delete</button></td>
+        </tr>
+        {{/each}}
+        </table>
+      <p style="background-color:powderblue">{{results}}</p>
     </div>
 </html>

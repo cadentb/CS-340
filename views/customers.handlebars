@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
 <html>
+{{#each foo}}
+{{this}}
+{{/each}}
     <head>
       <link rel="stylesheet" type="text/css" href="linkMenu.css" />
     </head>
@@ -33,15 +36,15 @@
     <div class = "top">
     <body>
       <h1>Customers</h1>
-        <form>
-            <p>firstName</p>
-            <input type="text">
-            <p>lastName</p>
-            <input type="text">
-            <p>email</p>
-            <input type="text">
+        <form id ="addCustomer" action="/customers" method="post">
+            <p>First Name</p>
+            <input type="text" name = "firstName">
+            <p>Last Name</p>
+            <input type="text" name = "lastName">
+            <p>Email</p>
+            <input type="text" name = "email">
             <p>ADD TO TABLE</p>
-            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+            <input type = "submit" value = "Submit">
         </form>
     </body>
     </div>
@@ -54,25 +57,25 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Delete</th>
           </tr>
           <tr>
             <td>1</td>
             <td>Matthew</td>
             <td>Brayton</td>
             <td>MatthewBrayton@mail.mail</td>
+            <td><button type="button" id="deleteButton">Delete</button></td>
+
           </tr>
           <tr>
             <td>2</td>
             <td>Caden</td>
             <td>Burke</td>
             <td>Cadenburke@mail.mail</td>
+            <td><button type="button" id="deleteButton">Delete</button></td>
           </tr>
         </table>
       </body>
-      <br>
-      <label for = del>Delete:</label>
-      <input type = "text" id = "del">
-      <button>Delete</button>
       <br>
       <br>
       <label for = search>Search:</label>
@@ -82,12 +85,26 @@
       <br>
       <button>Update</button>
       <br><br>
-      {{#each data}}
+      <table>
+        <tr>
+          <th>Customer ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Delete</th>
+        </tr>
+
+        {{#each results}}
         <tr>
           <td>{{customerID}}</td>
           <td>{{firstName}}</td>
           <td>{{lastName}}</td>
           <td>{{email}}</td>
+          <td><button onclick="deleteCustomer({{id}})" type="button" id="deleteButton">Delete</button></td>
         </tr>
-    </div >
+        {{/each}}
+        </table>
+      <p style="background-color:powderblue">{{results}}</p>
+
+    </div>
 </html>
