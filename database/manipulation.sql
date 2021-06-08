@@ -1,9 +1,9 @@
 -- Insertion queries --
-INSERT INTO customers(firstName, lastName, email)
-VALUES (:firstNameValue, :lastNameValue, :emailValue);
+INSERT INTO customers(houseID, firstName, lastName, email)
+VALUES (:houseIDValue, :firstNameValue, :lastNameValue, :emailValue);
 
-INSERT INTO orders(shipStreet, shipCity, shipState, shipZip)
-VALUES (:shipStreetValue, :shipCityValue, :shipStateValue, :shipZipValue);
+INSERT INTO orders(customerID, shipStreet, shipCity, shipState, shipZip)
+VALUES (:customerIDValue, :shipStreetValue, :shipCityValue, :shipStateValue, :shipZipValue);
 
 INSERT INTO products(category, price, name, quantityInStock)
 VALUES (:categoryValue, :priceValue, :nameValue, :quantityInStockValue);
@@ -11,52 +11,77 @@ VALUES (:categoryValue, :priceValue, :nameValue, :quantityInStockValue);
 INSERT INTO greekHouses(letters, nickname)
 VALUES (:lettersValue, :nicknameValue);
 
+INSERT INTO products_greekHouses(houseID, productID)
+VALUES (:houseIDValue, :productIDValue);
+
+INSERT INTO products_orders(orderID, productID, productQty)
+VALUES (:orderIDValue, :productIDValue, :productQtyValue);
 
 -- Searching queries --
 SELECT customerID, houseID, firstName, lastName, email
 FROM customers
-WHERE customerID = :selectedCustomerID
+WHERE customerID = :selectedCustomerID;
 
-SELECT orderID, shipStreet, shipCity, shipState, shipZip
+SELECT orderID, customerID, shipStreet, shipCity, shipState, shipZip
 FROM orders
-WHERE orderID = :selectedOrderID
+WHERE orderID = :selectedOrderID;
 
 SELECT productID, category, price, name, quantityInStock
 FROM products
-WHERE productID = :selectedProductID
+WHERE productID = :selectedProductID;
 
 SELECT houseID, letters, nickname
-FROM greekhouses
-WHERE houseID = :selectedHouseID 
+FROM greekHouses
+WHERE houseID = :selectedHouseID;
 
+SELECT productID, houseID 
+FROM products_greekHouses
+WHERE productID=:selectedProductID AND houseID=:selectedHouseID;
+
+SELECT orderID, productID, productQty 
+FROM products_orders
+WHERE orderID=:selectedOrderID AND productID=:selectedProductID;
 
 -- Delete Queries --
 DELETE FROM customers
-WHERE customerID = :selectedCustomerID
+WHERE customerID = :selectedCustomerID;
 
 DELETE FROM orders
-WHERE orderID = :selectedOrderID
+WHERE orderID = :selectedOrderID;
 
 DELETE FROM products
-WHERE productID = :selectedProductID
+WHERE productID = :selectedProductID;
 
-DELETE FROM greekhouses
-WHERE houseID = :selectedHouseID
+DELETE FROM greekHouses
+WHERE houseID = :selectedHouseID;
 
+DELETE FROM products_greekHouses 
+WHERE productID=:selectedProductID AND houseID=:selectedHouseID;
+
+DELETE FROM products_orders 
+WHERE orderID=:selectedOrderID AND productID=:selectedProductID;
 
 -- Update Queries --
 UPDATE customers
 SET firstName = :firstNameInput, lastName = :lastNameInput, email = :emailInput
-WHERE customerID = :selectedCustomerID
+WHERE customerID = :selectedCustomerID;
 
 UPDATE orders
-SET shipStreet = :shipStreetInput, shipCity = :shipCityInput, shipState = :shipStateInput, shipZip = shipZipInput
-WHERE orderID = :selectedOrderID
+SET customerID = :customerIDInput, shipStreet = :shipStreetInput, shipCity = :shipCityInput, shipState = :shipStateInput, shipZip = :shipZipInput
+WHERE orderID = :selectedOrderID;
 
 UPDATE products
 SET category = :categoryInput, price = :priceInput, name = :nameInput, quantityInStock = :quantityInStockInput
-WHERE productID = :selectedProductID
+WHERE productID = :selectedProductID;
 
 UPDATE greekHouses
 SET letters = :letterInput, nickname = :nicknameInput
-WHERE houseID = :selectedHouseID
+WHERE houseID = :selectedHouseID;
+
+UPDATE products_greekHouses 
+SET productID=:productIDInput, houseID=:HouseIDInput 
+WHERE productID=:selectedProductID AND houseID=:selectedHouseID;
+
+UPDATE products_orders 
+SET orderID=:orderIDInput, productID=:productIDInput, productQty=:productQtyInput 
+WHERE orderID=:selectedOrderID AND productID=:selectedProductID;
