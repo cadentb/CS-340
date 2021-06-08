@@ -43,20 +43,18 @@
 
     <body>
       <h1>Products</h1>
-        <form>
+        <form id ="addProduct" action="/products" method="post">
 
-            <p>Order ID</p>
-            <input type="text">
-            <p>House ID</p>
-            <input type="text">
             <p>category</p>
-            <input type="text">
+            <input type="text" name = "category">
             <p>price</p>
-            <input type="text">
+            <input type="text" name = "price">
             <p>name</p>
-            <input type="text">
+            <input type="text" name = "name">
+            <p>Quantity In Stock</p>
+            <input type="text" name = "quantityInStock">
             <p>ADD TO TABLE</p>
-            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+            <button type = "submit" value = "Submit">Add to Table</button>
         </form>
 
     </body>
@@ -65,63 +63,36 @@
     <div class = "top2">
       <body>
         <h1>Table</h1>
+        <br>
+        <br>
+        <label for = search>Search:</label>
+        <input type = "text" id = "search">
+        <button>Search</button>
+        <br>
+        <br>
+        <button>Update</button>
+        <br><br>
         <table>
           <tr>
             <th>Product ID</th>
-            <th>Order ID</th>
-            <th>House ID</th>
             <th>Category</th>
             <th>Price</th>
             <th>Name</th>
+            <th>Quantity</th>
             <th>Delete</th>
-
           </tr>
+
+          {{#each results}}
           <tr>
-            <td>1</td>h
-            <td>NULL</td>
-            <td>1</td>
-            <td>Hoodies</td>
-            <td>49.99</td>
-            <td>Gray Lettes Hoodie</td>
-            <td><button type="button" id="deleteButton">Delete</button></td>
-
+            <td>{{productID}}</td>
+            <td>{{category}}</td>
+            <td>{{price}}</td>
+            <td>{{name}}</td>
+            <td>{{quantityInStock}}</td>
+            <td><button onclick="deleteProducts({{productID}})">Delete</button></td>
           </tr>
-        </table>
+          {{/each}}
+          </table>
       </body>
-      <br>
-      <br>
-      <label for = search>Search:</label>
-      <input type = "text" id = "search">
-      <button>Search</button>
-      <br>
-      <br>
-      <button>Update</button>
-      <br><br>
-      <table>
-        <tr>
-          <th>Product ID</th>
-          <th>Order ID</th>
-          <th>House ID</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th>Name</th>
-          <th>Quantity</th>
-          <th>Delete</th>
-        </tr>
-
-        {{#each results}}
-        <tr>
-          <td>{{productID}}</td>
-          <td>{{orderID}}</td>
-          <td>{{houseID}}</td>
-          <td>{{category}}</td>
-          <td>{{price}}</td>
-          <td>{{name}}</td>
-          <td>{{quantityInStock}}</td>
-          <td><button type="button" id="deleteButton">Delete</button></td>
-        </tr>
-        {{/each}}
-        </table>
-      <p style="background-color:powderblue">{{results}}</p>
     </div>
 </html>

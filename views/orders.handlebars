@@ -42,21 +42,19 @@
     <div class = "top3">
     <body>
       <h1>Orders</h1>
-        <form>
-            <p>Product ID</p>
-            <input type="text">
+        <form id ="addOrder" action="/orders" method="post">
             <p>Customer ID</p>
-            <input type="text">
+            <input type="text" name = "customerID">
             <p>shipStreet</p>
-            <input type="text">
+            <input type="text" name = "shipStreet">
             <p>shipCity</p>
-            <input type="text">
+            <input type="text" name = "shipCity">
             <p>shipState</p>
-            <input type="text">
+            <input type="text" name = "shipState">
             <p>shipZip</p>
-            <input type="text">
+            <input type="text" name = "shipZip">
             <p>ADD TO TABLE</p>
-            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+            <input type = "submit" value = "Submit">
         </form>
 
     </body>
@@ -66,7 +64,7 @@
         <h1>Table</h1>
         <table>
           <tr>
-            <th>Product ID</th>
+            <th>Order ID</th>
             <th>Customer ID</th>
             <th>Shipping Street</th>
             <th>Shipping City</th>
@@ -74,45 +72,18 @@
             <th>Shipping Zip Code</th>
             <th>Delete</th>
           </tr>
+
+          {{#each results}}
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>NW Vanburen Avenue</td>
-            <td>Corvallis</td>
-            <td>Oregon</td>
-            <td>97331</td>
-            <td><button type="button" id="deleteButton">Delete</button></td>
-
-
+            <td>{{orderID}}</td>
+            <td>{{customerID}}</td>
+            <td>{{shipStreet}}</td>
+            <td>{{shipCity}}</td>
+            <td>{{shipState}}</td>
+            <td>{{shipZip}}</td>
+            <td><button onclick="deleteOrders({{orderID}})">Delete</button></td>
           </tr>
+          {{/each}}
         </table>
-      </body>
-
-      <br>
-      <br>
-      <button>Update</button>
-      <br><br>
-      <table>
-        <tr>
-          <th>Order ID</th>
-          <th>Shipping Street</th>
-          <th>Shipping City</th>
-          <th>Shipping State</th>
-          <th>Shipping Zip Code</th>
-          <th>Delete</th>
-        </tr>
-
-        {{#each results}}
-        <tr>
-          <td>{{orderID}}</td>
-          <td>{{shipStreet}}</td>
-          <td>{{shipCity}}</td>
-          <td>{{shipState}}</td>
-          <td>{{shipZip}}</td>
-          <td><button type="button" id="deleteButton">Delete</button></td>
-        </tr>
-        {{/each}}
-        </table>
-      <p style="background-color:powderblue">{{results}}</p>
     </div>
 </html>

@@ -1,4 +1,4 @@
-function deletePerson(id){
+function deleteCustomer(id){
     $.ajax({
         url: '/customers/' + id,
         type: 'DELETE',

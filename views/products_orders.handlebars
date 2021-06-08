@@ -3,10 +3,10 @@
     <head>
       <link rel="stylesheet" type="text/css" href="linkMenu.css" />
       <style>
-        .top5{
+        .top4{
           position: absolute;
           top: 40%;
-          left: 15%;
+          left: 20%;
           transform: translate(-50%, -50%);
           text-align: center;
         }
@@ -39,40 +39,45 @@
         </nav>
       </ul>
     </div>
-    <div class = "top5">
+    <div class = "top4">
     <body>
       <h1>Products and Orders</h1>
-        <form>
+        <form id ="addProductsOrders" action="/products_orders" method="post">
             <p>orderID</p>
-            <input type="text">
+            <input type="text" name = "orderID">
             <p>productID</p>
-            <input type="text">
+            <input type="text" name = "productID">
             <p>productQty</p>
-            <input type="text">
+            <input type="text" name = "productQty">
             <p>ADD TO TABLE</p>
-            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+            <button type = "submit" value = "Submit">Add to Table</button>
         </form>
-
+      
     </body>
   </div>
+      <div class = "top2">
+        <body>
 
-    <div class = "top2">
-      <body>
-        <h1>Table</h1>
-        <table>
-          <tr>
-            <th>Product ID</th>
-            <th>Order ID</th>
-            <th>Product Quantity</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>2</td>
-          </tr>
-        </table>
-      </body>
-      <br>
-      <button>Update</button>
-    </div>
+          <h1>Table</h1>
+          <table>
+            <tr>
+              <th>Order ID</th>
+              <th>Product ID</th>
+              <th>Product Quantity</th>
+              <th>Delete</th>
+            </tr>
+
+            {{#each results}}
+            <tr>
+              <td>{{orderID}}</td>
+              <td>{{productID}}</td>
+              <td>{{productQty}}</td>
+              <td><button onclick="deleteProductsOrders({{orderID}}, {{productID}})">Delete</button></td>
+            </tr>
+            {{/each}}
+            </table>
+        </body>
+        <br>
+        <button>Update</button>
+      </div>
 </html>

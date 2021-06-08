@@ -34,57 +34,39 @@
     <div class = "top">
     <body>
       <h1>Greek Houses</h1>
-        <form>
-            <p>Product ID</p>
-            <input type="text">
+        <form id ="addGreekhouse" action="/greekhouses" method="post">
             <p>Letters</p>
-            <input type="text">
+            <input type="text" name = "letters">
             <p>Nickname</p>
-            <input type="text">
+            <input type="text" name = "nickname">
             <p>ADD TO TABLE</p>
-            <button class="add_to_table" type = "button" onclick = "">Add to Table</button>
+            <input type = "submit" value = "Submit">
         </form>
     </body>
 
     </div>
     <div class = "top2">
       <body>
-        <h1>Table</h1>
         <table>
           <tr>
-            <th>Product ID</th>
+            <th>House ID</th>
             <th>Letters</th>
             <th>Nickname</th>
             <th>Delete</th>
           </tr>
+
+          {{#each results}}
           <tr>
-            <td>44</td>
-            <td>Alpha Tau Omega</td>
-            <td>ATO</td>
-            <td><button type="button" id="deleteButton">Delete</button></td>
+            <td>{{houseID}}</td>
+            <td>{{letters}}</td>
+            <td>{{nickname}}</td>
+            <td><button onclick="deleteGreekhouse({{houseID}})">Delete</button></td>
           </tr>
-        </table>
+          {{/each}}
+          </table>
       </body>
       <br>
       <button>Update</button>
       <br><br>
-      <table>
-        <tr>
-          <th>House ID</th>
-          <th>Letters</th>
-          <th>Nickname</th>
-          <th>Delete</th>
-        </tr>
-
-        {{#each results}}
-        <tr>
-          <td>{{houseID}}</td>
-          <td>{{letters}}</td>
-          <td>{{nickname}}</td>
-          <td><button type="button" id="deleteButton">Delete</button></td>
-        </tr>
-        {{/each}}
-        </table>
-      <p style="background-color:powderblue">{{results}}</p>
     </div>
 </html>
